@@ -141,7 +141,7 @@ export class Game extends Phaser.Scene{
         this.scoreboard.incrementPoints(10);
         if(this.diamonds.countActive() === 0)
         {
-            this.endGame();
+            this.endGame(false);
         }
         var x = (this.player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
 
@@ -158,8 +158,12 @@ export class Game extends Phaser.Scene{
         bomb2.setVelocity(Phaser.Math.Between(-200, 200), 20);
     }
 
-    endGame(){
-        this.scene.start('gameover');
+    endGame(completed = false){
+        if(completed){
+            this.scene.start('gameover');
+        } else if(!completed){
+            this.scene.start('congratulations');
+        }
     }
 }
 

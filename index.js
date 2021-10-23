@@ -1,10 +1,12 @@
 import { Game } from "./scenes/game.js";
+import { Gameover } from "./scenes/gameover.js";
+import { Congratulations } from "./scenes/congratulations.js";
 
 const Config = {
     type: Phaser.Auto,
     width: 800,
     heihgt: 600,
-    scene: [Game],
+    scene: [Game, Gameover, Congratulations],
     physics:{
         default: 'arcade',
         arcade:{
